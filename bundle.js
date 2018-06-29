@@ -67,7 +67,7 @@
 /* 0 */
 /***/ (function(module, exports) {
 
-console.log("hello carnalito...");
+console.log("hello carnalito... webpack.config");
 
 /***/ })
 /******/ ]);
