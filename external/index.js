@@ -1,1 +1,1 @@
-console.log("hello carnalito... webpack.config");
+console.log("relative paths... webpack.config");
