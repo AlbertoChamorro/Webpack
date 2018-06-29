@@ -1,0 +1,22 @@
+{
+  "name": "habilities-webpack",
+  "version": "1.0.0",
+  "description": "habilities for webpack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlbertoChamorro/Webpack.git"
+  },
+  "author": "@AlbertoChamorro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlbertoChamorro/Webpack/issues"
+  },
+  "homepage": "https://github.com/AlbertoChamorro/Webpack#readme",
+  "devDependencies": {
+    "webpack": "^4.14.0"
+  }
+}
