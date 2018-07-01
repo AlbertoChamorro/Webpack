@@ -1,0 +1,28 @@
+{
+    "teachers": [
+        {
+            "name": "Alberto Chamorro",
+            "accounts": {
+                "facebook": "https://www.facebook.com/profile.php?id=100006691396145",
+                "email": "albertchc04@gmail.com",
+                "twitter": "alberto.chamorro"
+            }
+        },
+        {
+            "name": "Walger Herrera",
+            "accounts": {
+                "facebook": "https://www.facebook.com/walger.herrera",
+                "email": "walger.herrera@gmail.com",
+                "twitter": "walger.herrera"
+            }
+        },
+        {
+            "name": "Claudia Benavidez Rugama",
+            "accounts": {
+                "facebook": "https://www.facebook.com/claudia.benavidezrugama?fref=pb&hc_location=friends_tab",
+                "email": "claudia.benavidez@gmail.com",
+                "twitter": "claudia.benavidezrugama"
+            }
+        }
+    ]
+}
