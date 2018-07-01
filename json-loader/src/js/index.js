@@ -1,10 +1,11 @@
 import '../css/style.css'
+import data from '../json/teachers.json'
 
-import {greeting, delay} from '../js/helper';
-const user = require('../js/user');
+import renderToDOM from './render-dom'
+import generator from './builder-dom'
 
-document.write(greeting)
-delay();
-console.log(user.getName());
-
-console.log("babel es2015")
+data.teachers.forEach(teacher => {
+    console.log(teacher)
+    const item = generator.makeItemList('li', teacher.name)
+    renderToDOM.render(item)    
+})

@@ -72,15 +72,25 @@
 
 __webpack_require__(1);
 
-var _helper = __webpack_require__(2);
+var _teachers = __webpack_require__(2);
 
-var user = __webpack_require__(3);
+var _teachers2 = _interopRequireDefault(_teachers);
 
-document.write(_helper.greeting);
-(0, _helper.delay)();
-console.log(user.getName());
+var _renderDom = __webpack_require__(3);
 
-console.log("babel es2015");
+var _renderDom2 = _interopRequireDefault(_renderDom);
+
+var _builderDom = __webpack_require__(4);
+
+var _builderDom2 = _interopRequireDefault(_builderDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+_teachers2.default.teachers.forEach(function (teacher) {
+    console.log(teacher);
+    var item = _builderDom2.default.makeItemList('li', teacher.name);
+    _renderDom2.default.render(item);
+});
 
 /***/ }),
 /* 1 */
@@ -90,24 +100,9 @@ console.log("babel es2015");
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-
-
-var waitTime = new Promise(function (successHandle, failureHandle) {
-    setTimeout(function () {
-        successHandle('Success Promise');
-    }, 2000);
-});
-
-module.exports = {
-    greeting: "hello world from module",
-    delay: async function delay() {
-        var message = await waitTime;
-        console.log(message);
-    }
-};
+module.exports = {"teachers":[{"name":"Alberto Chamorro","accounts":{"facebook":"https://www.facebook.com/profile.php?id=100006691396145","email":"albertchc04@gmail.com","twitter":"alberto.chamorro"}},{"name":"Walger Herrera","accounts":{"facebook":"https://www.facebook.com/walger.herrera","email":"walger.herrera@gmail.com","twitter":"walger.herrera"}},{"name":"Claudia Benavidez Rugama","accounts":{"facebook":"https://www.facebook.com/claudia.benavidezrugama?fref=pb&hc_location=friends_tab","email":"claudia.benavidez@gmail.com","twitter":"claudia.benavidezrugama"}}]}
 
 /***/ }),
 /* 3 */
@@ -116,26 +111,68 @@ module.exports = {
 "use strict";
 
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+exports.render = function (element) {
+    document.body.append(element);
+};
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
 
-var User = function () {
-    function User() {
-        _classCallCheck(this, User);
-    }
+"use strict";
 
-    _createClass(User, null, [{
-        key: 'getName',
-        value: function getName() {
-            return 'Pepito';
-        }
-    }]);
 
-    return User;
-}();
+var builder = function builder(type) {
+    return document.createElement(type);
+};
 
-module.exports = User;
+var makeMessage = function makeMessage(type, msg) {
+    var element = builder(type);
+    element.textContent = msg;
+    return element;
+};
+
+var makeItemList = function makeItemList(type, msg) {
+    var element = makeMessage(type, msg);
+    element.setAttribute('fontSize', '10px');
+    return element;
+};
+
+var makeImage = function makeImage(src) {
+    var width = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 50;
+    var height = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : width;
+
+    var element = builder('img');
+    element.setAttribute('src', src);
+    element.setAttribute('width', width);
+    element.setAttribute('height', height);
+
+    return element;
+};
+
+var makeVideo = function makeVideo(src) {
+    var width = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 380;
+    var height = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : width;
+    var autoPlay = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : true;
+    var showControl = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
+
+    var element = builder('video');
+    element.setAttribute('src', src);
+    element.setAttribute('width', width);
+    element.setAttribute('height', height);
+    element.setAttribute('controls', showControl);
+    element.setAttribute('autoplay', autoPlay);
+
+    return element;
+};
+
+module.exports = {
+    builder: builder,
+    makeMessage: makeMessage,
+    makeImage: makeImage,
+    makeVideo: makeVideo,
+    makeItemList: makeItemList
+};
 
 /***/ })
 /******/ ]);

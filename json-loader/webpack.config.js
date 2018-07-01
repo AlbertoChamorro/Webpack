@@ -28,6 +28,12 @@ module.exports = {
                 }
             },
             {
+                test: /\.json$/,
+                use: {
+                    loader: "json-loader"
+                }
+            },
+            {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({
                     use: "css-loader"
